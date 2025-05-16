@@ -1,4 +1,4 @@
-# 💬 ChatApp
+# 💬 ChatterBox
 
 A real-time chat application built with **React**, **Tailwind CSS**, **DaisyUI**, and **Zustand** on the frontend, and powered by **Node.js**, **Express**, **MongoDB**, and **Socket.IO** on the backend.
 
