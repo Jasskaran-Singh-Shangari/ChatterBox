@@ -38,36 +38,7 @@ A real-time chat application built with **React**, **Tailwind CSS**, **DaisyUI**
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![GitHub Repo](https://img.shields.io/badge/Repo-ChatApp-181717?style=for-the-badge&logo=github)
 ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue?style=for-the-badge&logo=gnu)
-![Open Source](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-red?style=for-the-badge)
-
-
-## 📁 Project Structure
-chatapp/
-├── client/                     # Frontend (React)
-│   ├── public/                 # Static assets
-│   └── src/
-│       ├── assets/             # Images and media
-│       ├── components/         # Reusable React components
-│       ├── pages/              # Page components (Login, Chat, etc.)
-│       ├── store/              # Zustand store
-│       ├── utils/              # Helper functions
-│       ├── App.jsx            # Root component
-│       ├── main.jsx           # Entry point
-│       └── index.css          # Global styles (Tailwind & DaisyUI)
-│
-├── server/                     # Backend (Node.js + Express)
-│   ├── controllers/            # Request handlers
-│   ├── models/                 # Mongoose schemas
-│   ├── routes/                 # API routes
-│   ├── socket/                 # Socket.IO configuration
-│   ├── utils/                  # Utility functions
-│   ├── config/                 # DB and server config
-│   ├── index.js               # Entry point for server
-│   └── .env                   # Environment variables
-│
-├── package.json                # Project metadata (for root or monorepo)
-├── README.md                   # Project documentation
-└── LICENSE    
+![Open Source](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-red?style=for-the-badge)   
 
 ## License ⚖️
 This project is licensed under the GNU GPLv3 License 📝 - see the [LICENSE](LICENSE) file for details. 📂
