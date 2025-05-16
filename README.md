@@ -45,6 +45,5 @@ This project is licensed under the GNU GPLv3 License 📝 - see the [LICENSE](LI
 
 ## 📬 Contact
 If you have ideas, feedback, or want to collaborate — feel free to reach out!
-Let's make PinVoyage a global map of memories. 🌍❤️
 
 
