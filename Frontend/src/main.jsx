@@ -10,6 +10,7 @@ import LoginPage from './route/LoginPage.jsx'
 import Settings from './route/Settings.jsx'
 import ProfilePage from './route/ProfilePage.jsx'
 import ProtectedRoute from './route/ProtectedRoute.jsx'
+import { Toaster } from 'react-hot-toast'
 
 
 const router = createBrowserRouter([
@@ -50,5 +51,6 @@ createRoot(document.getElementById('root')).render(
     <RouterProvider router={router}>
     <App />
     </RouterProvider>
+    <Toaster />
   </StrictMode>
 )
