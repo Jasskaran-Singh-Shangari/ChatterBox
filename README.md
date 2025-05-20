@@ -19,6 +19,7 @@ A real-time chat application built with **React**, **Tailwind CSS**, **DaisyUI**
 - [Tailwind CSS](https://tailwindcss.com/)
 - [DaisyUI](https://daisyui.com/)
 - [Zustand](https://zustand-demo.pmnd.rs/)
+- [Lucide React](https://lucide.dev/guide/packages/lucide-react)
 
 ### Backend
 - [Node.js](https://nodejs.org/)
