@@ -8,7 +8,7 @@ export const protectRoute = async (req, res, next)=>{
         const token = req.cookies.jwt;
     
         if(!token)
-            res.status(401).json({
+            return res.status(401).json({
         message: " Unauthorized - No Token Provided "})
     
         // VALIDATE COOKIE -> JWT TOKEN
@@ -16,7 +16,7 @@ export const protectRoute = async (req, res, next)=>{
         const decodedToken = jwt.verify(token,process.env.JWT_SECRET_KEY);
     
         if(!decodedToken)
-            res.status(400).json({
+            return res.status(400).json({
         message: " Unauthorized token - No Token Provided "})
     
         // console.log(decodedToken)
@@ -24,7 +24,7 @@ export const protectRoute = async (req, res, next)=>{
         const user = await User.findById(decodedToken.userId).select("-password")
     
         if(!user)
-            res.status(400).json({
+            return res.status(400).json({
         message: "User not found"})
     
         req.user=user;
@@ -32,7 +32,7 @@ export const protectRoute = async (req, res, next)=>{
         next();
     } catch (error) {
         console.log(`ERROR 404: ${error}`)
-        res.status(500).json({message: "Internal Server Error"})
+        return res.status(500).json({message: "Internal Server Error"})
 
 }
 }

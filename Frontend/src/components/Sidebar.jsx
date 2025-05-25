@@ -2,15 +2,16 @@ import { useEffect } from "react";
 import { useChatStore } from "../store/useChatStore"
 import SidebarSkeleton from "./skeletons/SidebarSkeleton";
 import { Users } from "lucide-react"
+import { useAuthStore } from "../store/useAuthStore";
 
 
 
 
 const Sidebar = () => {
 
-    const { getUsers, users,selectedUser, setSelectedUser, isUsersLoading }=useChatStore()
+    const { getUsers, users, selectedUser, setSelectedUser, isUsersLoading }=useChatStore()
 
-    const onlineUsers=[];
+  const {onlineUsers}=useAuthStore()
 
     useEffect(()=>{
         getUsers()
@@ -18,7 +19,7 @@ const Sidebar = () => {
 
     if (isUsersLoading) return <SidebarSkeleton />
   return (
-    <aside className="h-[88vh] w-20 lg:w-72 border-r bprder-base-300 flex flex-col transition-all duration-200">
+    <aside className="h-[88vh] w-20 lg:w-72 border-r border-base-300 flex flex-col transition-all duration-200">
         <div className="border-b border-base-300 w-full p-5">
             <div className="flex items-center gap-2">
                 <Users />
