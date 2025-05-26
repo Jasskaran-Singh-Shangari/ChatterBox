@@ -77,7 +77,7 @@ export const signIn= async (req, res)=>{
     } catch (error) {
         console.log(`Error while signing in ${error}`)
         res.status(400).json({
-            message: "Internal Server Error"
+            message: "Internal Server Error!!!!"
         })
     }
 }
@@ -95,32 +95,28 @@ export const signOut=(req, res)=>{
     }
 }
 
-export const updateProfile=async (req,res)=>{
-    try {
-        
-        const {avatar}=req.body;
-        const userId=req.user._id;
+export const updateProfile = async (req, res) => {
+  try {
+    const { avatar } = req.body;
+    const userId = req.user._id;
 
-        if(!avatar){
-            res.status(400).json({
-                message: "Avatar is required"
-            })
-        }
-
-        const uploadResponse=cloudinary.uploader.upload(avatar)
-        const updatedUser=await User.findByIdAndUpdate(userId,{avatar:uploadResponse.secure_url}, {new:true})
-
-        res.status(200).json(updatedUser)
-
-
-    } catch (error) {
-        console.log(`ERRORE 404 ${error}`)
-        res.status(500).json({
-            message: "Internal Server Error"
-        })
-        
+    if (!avatar) {
+      return res.status(400).json({ message: "Profile pic is required" });
     }
-}
+
+    const uploadResponse = await cloudinary.uploader.upload(avatar);
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      { avatar: uploadResponse.secure_url },
+      { new: true }
+    );
+
+    res.status(200).json(updatedUser);
+  } catch (error) {
+    console.log("error in update profile:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
 
 export const checkAuth=(req, res)=>{
     // const user=req.user;
@@ -129,7 +125,7 @@ export const checkAuth=(req, res)=>{
     } catch (error) {
         console.log(`ERROR:${error}`)
         res.status(500).json({
-            message: "Internal Server Error"
+            message: "Internal Server Error!x5"
         });
     }
 }

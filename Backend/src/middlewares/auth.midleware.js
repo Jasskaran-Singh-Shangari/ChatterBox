@@ -3,6 +3,7 @@ import { User } from "../models/user.model.js";
 
 
 export const protectRoute = async (req, res, next)=>{
+    console.log("Reached the protected route")
 
     try {
         const token = req.cookies.jwt;
@@ -28,11 +29,13 @@ export const protectRoute = async (req, res, next)=>{
         message: "User not found"})
     
         req.user=user;
+        console.log("User verified")
     
         next();
     } catch (error) {
         console.log(`ERROR 404: ${error}`)
-        return res.status(500).json({message: "Internal Server Error"})
-
+        return res
+        .status(500)
+        .json({message: "Internal Server Error!!"})
 }
 }
