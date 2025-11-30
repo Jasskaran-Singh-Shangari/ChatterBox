@@ -49,7 +49,6 @@ export const signUp = async(req, res)=>{
 
         }
     } catch (error) {
-
         console.log(`Error in sign up controller ${error}`)
         res.status(500).json({
             message:"Internal Server Error"
@@ -57,30 +56,38 @@ export const signUp = async(req, res)=>{
     }
 }
 
-export const signIn= async (req, res)=>{
-    const {username, password} = req.body;
+export const signIn = async (req, res) => {
+    const { username, password } = req.body;
+
     try {
-        const user = await User.findOne({username});
-        if(!user)
-        res.status(400).json({message:"Invalid credentials"})
+        const user = await User.findOne({ username });
+        if (!user) {
+            return res.status(400).json({ message: "Invalid username or password" });
+        }
 
-        const isPasswordCorrect= await bcrypt.compare(password, user.password)
+        const isPasswordCorrect = await bcrypt.compare(password, user.password);
+        if (!isPasswordCorrect) {
+            return res.status(400).json({ message: "Invalid username or password" });
+        }
 
-        if(!isPasswordCorrect)
-            res.status(400).json({
-        message: "Invalid Credentials"})
-
+        // Generate JWT in cookie
         generateToken(user._id, res);
 
-        res.status(200).json(user)
-        
+        return res.status(200).json({
+            message: "Login successful",
+            user: {
+                _id: user._id,
+                username: user.username,
+                email: user.email
+            }
+        });
+
     } catch (error) {
-        console.log(`Error while signing in ${error}`)
-        res.status(400).json({
-            message: "Internal Server Error!!!!"
-        })
+        console.log("Error while signing in:", error);
+        return res.status(500).json({ message: "Internal Server Error" });
     }
-}
+};
+
 
 export const signOut=(req, res)=>{
     try {
