@@ -80,10 +80,7 @@ export const signIn = async (req, res) => {
                 username: user.username,
                 email: user.email
             }
-        }).cookie("token", token, {
-            httpOnly: true,
-            secure: true, // required for HTTPS
-            sameSite: "None"});
+        })
 
     } catch (error) {
         console.log("Error while signing in:", error);
