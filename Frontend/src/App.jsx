@@ -1,16 +1,13 @@
 import Navbar from "./components/Navbar";
-
-import Homepage from "./route/HomePage";
+import Homepage from "./route/Homepage";
 import SignUpPage from "./route/SignUpPage";
 import LoginPage from "./route/LoginPage";
 import SettingsPage from "./route/Settings";
 import ProfilePage from "./route/ProfilePage";
-
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuthStore } from "./store/useAuthStore";
 import { useThemeStore } from "./store/useThemeStore";
 import { useEffect } from "react";
-
 import { Loader } from "lucide-react";
 import { Toaster } from "react-hot-toast";
 
@@ -38,7 +35,7 @@ const App = () => {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={authUser ? <HomePage /> : <Navigate to="/login" />} />
+        <Route path="/" element={authUser ? <Homepage /> : <Navigate to="/login" />} />
         <Route path="/signup" element={!authUser ? <SignUpPage /> : <Navigate to="/" />} />
         <Route path="/login" element={!authUser ? <LoginPage /> : <Navigate to="/" />} />
         <Route path="/settings" element={<SettingsPage />} />
