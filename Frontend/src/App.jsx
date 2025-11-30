@@ -1,6 +1,6 @@
 import Navbar from "./components/Navbar";
 
-import HomePage from "./route/HomePage";
+import Homepage from "./route/HomePage";
 import SignUpPage from "./route/SignUpPage";
 import LoginPage from "./route/LoginPage";
 import SettingsPage from "./route/Settings";
