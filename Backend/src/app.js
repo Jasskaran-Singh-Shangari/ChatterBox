@@ -8,13 +8,7 @@ import {app} from "./utils/socket.js"
 
 // USING MIDDLEWARES
 
-app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://chatterbox-539v.onrender.com"
-  ],
-  credentials: true
-}));
+app.use(cors())
 app.use(express.json({ limit: '50mb' }));
 app.use(cookieParser());
 
