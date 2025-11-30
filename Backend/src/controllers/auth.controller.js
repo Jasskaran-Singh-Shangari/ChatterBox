@@ -73,13 +73,6 @@ export const signIn = async (req, res) => {
         // Generate JWT in cookie
         generateToken(user._id, res);
 
-            res.cookie("token", token, {
-            httpOnly: true,
-            secure: true,        // required for HTTPS
-            sameSite: "None",    // allows cross-origin cookie
-            maxAge: 24 * 60 * 60 * 1000 // 1 day
-            });
-
         return res.status(200).json({
             message: "Login successful",
             user: {
@@ -87,7 +80,10 @@ export const signIn = async (req, res) => {
                 username: user.username,
                 email: user.email
             }
-        });
+        }).cookie("token", token, {
+            httpOnly: true,
+            secure: true, // required for HTTPS
+            sameSite: "None"});
 
     } catch (error) {
         console.log("Error while signing in:", error);
