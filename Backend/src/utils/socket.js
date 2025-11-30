@@ -5,10 +5,12 @@ import express from "express"
 const app = express()
 const server=http.createServer(app);
 
-const io=new Server(server, {
-    cors:{
-        origin: ["http://localhost:5173"]
-    },
+const io = new Server(server, {
+  cors: {
+    origin: ["https://chatterbox-539v.onrender.com", "http://localhost:5173"],
+    methods: ["GET", "POST"],
+    credentials: true,
+  }
 });
 
 
